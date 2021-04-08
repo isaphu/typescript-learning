@@ -65,11 +65,37 @@ const v2 = new Truck();
 const v3 = new Car();
 
 function useVehicle(vehicle: Vehicle) {
-  vehicle.drive();
-  if (vehicle instanceof Truck) {
-    vehicle.loadCargo(1000);
-  }
+    vehicle.drive();
+    if (vehicle instanceof Truck) {
+        vehicle.loadCargo(1000);
+    }
 }
-
 useVehicle(v1);
 useVehicle(v2);
+
+interface Bird {
+  type: "bird"; //very useful pattern when working with union type
+  flyingSpeed: number;
+}
+
+interface Horse {
+  type: "horse";
+  runningSpeed: number;
+}
+
+type Animal = Bird | Horse;
+
+function moveAnimal(animal: Animal) {
+  let speed;
+  switch (animal.type) {
+    case "bird":
+      speed = animal.flyingSpeed;
+      break;
+    case "horse":
+      speed = animal.runningSpeed;
+  }
+  console.log("Moving at speed: " + speed);
+}
+
+moveAnimal({ type: "bird", flyingSpeed: 10 });
+
