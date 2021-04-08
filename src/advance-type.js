@@ -9,6 +9,15 @@ function addTwoCombinable(a, b) {
     }
     return a + b;
 }
+var results = addTwoCombinable(1, " car");
+// console.log(results.split(' '))
+console.log(results);
+var fetchUserData = {
+    id: "u1",
+    name: "Isa",
+    job: { title: "CEO", description: "My own company" }
+};
+console.log(fetchUserData.job.title, fetchUserData.job.description);
 function printEmplyeeInformation(emp) {
     console.log("Name: " + emp.name);
     if ("privileges" in emp) {
@@ -61,3 +70,11 @@ function moveAnimal(animal) {
     console.log("Moving at speed: " + speed);
 }
 moveAnimal({ type: "bird", flyingSpeed: 10 });
+var userInputElement = document.getElementById('user-input');
+if (userInputElement) {
+    userInputElement.value = 'Hi there';
+}
+var errorBag = {
+    email: 'Not a valid email!',
+    username: 'Must start with a capital character!'
+};
